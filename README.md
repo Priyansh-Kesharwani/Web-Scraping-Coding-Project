@@ -2,6 +2,30 @@
 
 This project is designed to scrape content from web pages and save it to a JSON file.
 
+The key goals for this scraper are:
+
+- Paginate through at least the first 5 pages of a site.
+- Extract title and main content from each page.
+- Convert HTML tables to Markdown format.
+- Focus on robust, clean data extraction.
+- Handle edge cases with different page layouts.
+- Store scraped data in JSON format.
+- Option: Only scrape new pages, avoid duplicates.
+
+## Implementation Guidelines
+
+The scraper follows these guidelines:
+
+- Utilizes Python libraries like Requests, BeautifulSoup for scraping.
+- Gets the total pagination pages and scrapes through each.
+- Parses HTML to identify title tags and main content divs.
+- Removes sidebar and social media elements during content cleaning.
+- Converts table HTML to Markdown using markdownify.
+- Handles pages where content or titles are missing.
+- Stores {title, content, url} for each page in a JSON file.
+- Tracks scraped URLs to skip existing pages on re-runs.
+- Can be run on a schedule to retrieve only new data.
+
 ## `scrape_page()`
 
 The `scrape_page()` method is responsible for scraping a single page:
